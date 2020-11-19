@@ -42,4 +42,4 @@ def print_directory_md(top_dir: str = ".") -> None:
 
 
 if __name__ == "__main__":
-    print_directory_md("")
+    print_directory_md(".")

@@ -16,7 +16,7 @@
     
     
       
-        <title>Counting sort - Coding Interview</title>
+        <title>Сортировка подсчётом (Counting Sort) - Coding Interview</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#counting-sort" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Counting sort
+              Сортировка подсчётом (Counting Sort)
             
           </span>
         </div>
@@ -295,6 +295,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -316,6 +318,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Визуализация алгоритма
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -332,9 +341,12 @@
                   
                 
                 
-                  <h1>Counting sort</h1>
-                
-                <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+                <h1 id="counting-sort">Сортировка подсчётом (Counting Sort)<a class="headerlink" href="#counting-sort" title="Permanent link">&para;</a></h1>
+<h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Сортировка подсчетом – один из базовых алгоритмов, служит основой для многих сортировок, 
+но сам используется только для ознакомления с темой. </p>
+<p>Его суть в том, чтобы подсчитать сколько раз число встречается в массиве, 
+а затем заполнить массив этими числами в соответствии с количеством.</p>
 <h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code> <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This is pure Python implementation of counting sort algorithm</span>
@@ -410,6 +422,9 @@
     <span class="n">unsorted</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">user_input</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">counting_sort</span><span class="p">(</span><span class="n">unsorted</span><span class="p">))</span>
 </code></pre></div>
+
+<h3 id="_3">Визуализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><img alt="counting_sort" src="../../../../../img/algorithms/counting_sort.gif" /></p>
                 
               
               

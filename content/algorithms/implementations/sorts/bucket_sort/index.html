@@ -16,7 +16,7 @@
     
     
       
-        <title>Bucket sort - Coding Interview</title>
+        <title>Блочная сортировка (Карманная сортировка, корзинная сортировка, Bucket sort) - Coding Interview</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#bucket-sort" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Bucket sort
+              Блочная сортировка (Карманная сортировка, корзинная сортировка, Bucket sort)
             
           </span>
         </div>
@@ -295,6 +295,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -311,7 +313,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    Сложность алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     Реализация алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Визуализация алгоритма
   </a>
   
 </li>
@@ -332,10 +348,26 @@
                   
                 
                 
-                  <h1>Bucket sort</h1>
-                
-                <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+                <h1 id="bucket-sort">Блочная сортировка (Карманная сортировка, корзинная сортировка, Bucket sort)<a class="headerlink" href="#bucket-sort" title="Permanent link">&para;</a></h1>
+<h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Для блочной сортировки нужно разбить элементы массива входных данных на k блоков (карманов, корзин). 
+Далее каждый из таких блоков сортируется либо другой сортировкой, либо рекурсивно тем же методом разбиения. 
+После сортировок внутри каждых блоков данные записываются в массив в порядке разбиения на блоки. При этом нужно учитывать, 
+что данная сортировка работает только в том случае, если разбиение на блоки производится таким образом, 
+чтобы элементы каждого следующего блока были больше предыдущего.</p>
+<p>Блочная сортировка сильно деградирует при большом количестве мало отличных элементов (большинство элементов попадёт в одну корзину). 
+Поэтому такой тип сортировки использовать, когда велика вероятность того, что числа редко повторяются 
+(например, последовательность случайных чисел).</p>
+<h3 id="_2">Сложность алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Пусть <em>n</em> — количество элементов в массиве, <em>k</em> — количество блоков для разбиения.</p>
+<p><em>n<sub>i<sub/></em> — случайная величина, обозначающая количество элементов попавших в i-ый карман.</p>
+<p><em><script type="math/tex; mode=display">T(n)=O(n) + \sum_{i=1}^{k} O({n_i} log{n_i}) + O(k)</script></em></p>
+<p>, где <em>T(n)</em> время работы алгоритма карманной сортировки.</p>
+<p><em><script type="math/tex; mode=display">E[{n_i}]=\frac{n}{k}</script></em></p>
+<p>То есть, если <em>n ∼ k ⇒ E[T(n)] = O(n)</em></p>
+<p>Если, <em>n = o(k) ⇒ E[T(n)]=O(k)</em></p>
+<p>Из приведенных выше формул, видно, что в среднем "блочная сортировка" работает за линейное время.</p>
+<h3 id="_3">Реализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code> <span class="c1">#!/usr/bin/env python3</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Illustrate how to implement bucket sort algorithm.</span>
@@ -404,6 +436,9 @@
     <span class="k">assert</span> <span class="n">bucket_sort</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="k">assert</span> <span class="n">bucket_sort</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
 </code></pre></div>
+
+<h3 id="_4">Визуализация алгоритма<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="bucket_sort" src="../../../../../img/algorithms/bucket_sort.gif" /></p>
                 
               
               

@@ -16,7 +16,7 @@
     
     
       
-        <title>Bead sort - Coding Interview</title>
+        <title>Бисерная сортировка (Bead sort) - Coding Interview</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#bead-sort" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Bead sort
+              Бисерная сортировка (Bead sort)
             
           </span>
         </div>
@@ -295,6 +295,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -311,7 +313,28 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    Сложность алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     Реализация алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Визуализация алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Дополнительные источники
   </a>
   
 </li>
@@ -332,11 +355,40 @@
                   
                 
                 
-                  <h1>Bead sort</h1>
-                
-                <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code> <span class="sd">&quot;&quot;&quot;</span>
+                <h1 id="bead-sort">Бисерная сортировка (Bead sort)<a class="headerlink" href="#bead-sort" title="Permanent link">&para;</a></h1>
+<h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Предположим, нужно отсортировать набор натуральных чисел. 
+Друг под другом каждое число выложим в виде горизонтального ряда из соответствующего 
+количества шариков. А теперь поглядим на все эти группировки шариков не по горизонталям, 
+а по вертикалям. Сдвинем шарики вниз до упора. Снова переключимся на горизонтали и пересчитаем 
+бусинки в каждом ряду. 
+Получили первоначальный набор чисел, только упорядоченный.</p>
+<h3 id="_2">Сложность алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><em>O(1)</em> - Абстрактный случай, сферическая Bead sort в вакууме. 
+  Если представить, что все перемещаемые шарики одновременно сдвигаются и встают на свои места. 
+  Это нереализуемая сложность для этой сортировки – ни в теории алгоритмов, ни на практике.</p>
+</li>
+<li>
+<p><em>O(√N)</em> - Оценка для физической модели, где бусинки скользят вниз по хорошо смазанным спицам. 
+  Время свободного падения пропорционально квадратному корню максимальной высоты, которая в свою очередь кратна <strong>N</strong>.</p>
+</li>
+<li>
+<p><em>O(N)</em> - Шарики, которые ещё не добрались до своих мест, дружно перемещаются на одну позицию вниз за одну итерацию. 
+  Об этой сложности уместно говорить в случае физических устройств, реализующих такой способ сортировки, 
+  аналоговых или цифровых аппаратных реализаций.</p>
+</li>
+<li>
+<p><em>O(S)</em> - <strong>S</strong> – сумма элементов массива. Каждый шарик перемещается по отдельности, а не перекатываем группы шариков одновременно. 
+  Адекватная оценка сложности для реализации на языках программирования.</p>
+</li>
+<li>
+<p>Затраты памяти <em>O(N<sup>2</sup>)</em></p>
+</li>
+</ul>
+<h3 id="_3">Реализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Bead sort only works for sequences of nonegative integers.</span>
 <span class="sd">https://en.wikipedia.org/wiki/Bead_sort</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -380,6 +432,15 @@
     <span class="k">assert</span> <span class="n">bead_sort</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="k">assert</span> <span class="n">bead_sort</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 </code></pre></div>
+
+<h3 id="_4">Визуализация алгоритма<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="bead_sort" src="../../../../../img/algorithms/bead_sort.gif" /></p>
+<h3 id="_5">Дополнительные источники<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://habr.com/ru/post/198962/">Отличная статья на habr.com</a></li>
+<li><a href="http://rosettacode.org/wiki/Sorting_algorithms/Bead_sort">Реализация на 30+ языках</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort">Wiki</a></li>
+</ul>
                 
               
               

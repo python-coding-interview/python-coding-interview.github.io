@@ -16,7 +16,7 @@
     
     
       
-        <title>Bitonic sort - Coding Interview</title>
+        <title>Битонная сортировка (Bitonic sort) - Coding Interview</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#bitonic-sort" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Bitonic sort
+              Битонная сортировка (Bitonic sort)
             
           </span>
         </div>
@@ -295,6 +295,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -311,6 +313,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    Сложность алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     Реализация алгоритма
   </a>
   
@@ -332,11 +341,26 @@
                   
                 
                 
-                  <h1>Bitonic sort</h1>
-                
-                <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code> <span class="c1"># Python program for Bitonic Sort. Note that this program</span>
+                <h1 id="bitonic-sort">Битонная сортировка (Bitonic sort)<a class="headerlink" href="#bitonic-sort" title="Permanent link">&para;</a></h1>
+<h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Идея данного алгоритма заключается в том, что исходный массив преобразуется в <strong>битонную последовательность</strong> – последовательность, 
+которая сначала возрастает, а потом убывает. 
+Ее можно эффективно отсортировать следующим образом: разобьем массив на две части, создадим два массива, в первый добавим все элементы, 
+равные минимуму из соответственных элементов каждой из двух частей, а во второй – равные максимуму. 
+Утверждается, что получатся две битонные последовательности, каждую из которых можно рекурсивно отсортировать тем же образом, 
+после чего можно склеить два массива (так как любой элемент первого меньше или равен любого элемента второго). </p>
+<p>Для того, чтобы преобразовать исходный массив в битонную последовательность, сделаем следующее: если массив состоит из двух элементов, 
+можно просто завершиться, иначе разделим массив пополам, рекурсивно вызовем от половинок алгоритм, после чего отсортируем первую часть по порядку, 
+вторую в обратном порядке и склеим. Очевидно, получится битонная последовательность. </p>
+<p>Также заметим, что размер массива должен быть равен <strong>степени двойки</strong>, так что, возможно, придется его дополнять фиктивными элементами 
+(что не влияет на асимптотику).</p>
+<h3 id="_2">Сложность алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>O(N log<sup>2</sup>N)</em>, поскольку при построении битонной последовательности мы использовали сортировку, работающую за <em>O(N LogN)</em>,
+   а всего уровней было <strong>LogN</strong>. </li>
+</ul>
+<h3 id="_3">Реализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python program for Bitonic Sort. Note that this program</span>
 <span class="c1"># works only when size of input is a power of 2.</span>
 
 

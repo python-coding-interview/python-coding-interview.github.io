@@ -313,7 +313,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    Сложность алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     Реализация алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Визуализация алгоритма
   </a>
   
 </li>
@@ -336,8 +350,32 @@
                 
                 <h1 id="bubble-sort">Сортировка пузырьком (Bubble Sort)<a class="headerlink" href="#bubble-sort" title="Permanent link">&para;</a></h1>
 <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code> <span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
+<p>Алгоритм состоит из повторяющихся проходов по сортируемому массиву. 
+За каждый проход элементы последовательно сравниваются попарно и, если порядок в паре неверный, 
+выполняется обмен элементов. </p>
+<p>Проходы по массиву повторяются N-1 раз или до тех пор, пока на очередном проходе не окажется, 
+что обмены больше не нужны, что означает — массив отсортирован. 
+При каждом проходе алгоритма по внутреннему циклу, очередной наибольший элемент массива ставится 
+на своё место в конце массива рядом с предыдущим «наибольшим элементом», а наименьший элемент 
+перемещается на одну позицию к началу массива («всплывает» до нужной позиции как пузырёк в воде, 
+отсюда и название алгоритма).</p>
+<h3 id="_2">Сложность алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Худшее время <em>O(n<sup>2</sup>)</em></p>
+</li>
+<li>
+<p>Лучшее время <em>O(n)</em></p>
+</li>
+<li>
+<p>Среднее время <em>O(n<sup>2</sup>)</em></p>
+</li>
+<li>
+<p>Затраты памяти <em>O(1)</em></p>
+</li>
+</ul>
+<h3 id="_3">Реализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Pure implementation of bubble sort algorithm in Python</span>
 
 <span class="sd">    :param collection: some mutable ordered collection with heterogeneous</span>
@@ -390,6 +428,9 @@
     <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">bubble_sort</span><span class="p">(</span><span class="n">unsorted</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing time: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+
+<h3 id="_4">Визуализация алгоритма<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="bubble_sort" src="../../../../../img/algorithms/bubble_sort.gif" /></p>
                 
               
               

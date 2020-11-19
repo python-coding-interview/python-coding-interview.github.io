@@ -16,7 +16,7 @@
     
     
       
-        <title>Cocktail shaker sort - Coding Interview</title>
+        <title>Шейкерная сортировка (Cocktail shaker sort) - Coding Interview</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cocktail-shaker-sort" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Cocktail shaker sort
+              Шейкерная сортировка (Cocktail shaker sort)
             
           </span>
         </div>
@@ -295,6 +295,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -311,7 +313,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    Сложность алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     Реализация алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Визуализация алгоритма
   </a>
   
 </li>
@@ -332,10 +348,25 @@
                   
                 
                 
-                  <h1>Cocktail shaker sort</h1>
-                
-                <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+                <h1 id="cocktail-shaker-sort">Шейкерная сортировка (Cocktail shaker sort)<a class="headerlink" href="#cocktail-shaker-sort" title="Permanent link">&para;</a></h1>
+<h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Разновидность пузырьковой сортировки. 
+Анализируя метод пузырьковой сортировки, можно отметить два обстоятельства:</p>
+<ol>
+<li>Если при движении по части массива перестановки не происходят, 
+   то эта часть массива уже отсортирована и, следовательно, её можно исключить из рассмотрения.</li>
+<li>При движении от конца массива к началу минимальный элемент «всплывает» на первую позицию, 
+   а максимальный элемент сдвигается только на одну позицию вправо.</li>
+</ol>
+<p>Эти две идеи приводят к следующим модификациям в методе пузырьковой сортировки. 
+Границы рабочей части массива (то есть части массива, где происходит движение) <strong>устанавливаются в месте последнего обмена</strong> на каждой итерации. 
+Массив просматривается поочередно справа налево и слева направо.</p>
+<h3 id="_2">Сложность алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Сложность  составляет <em>O(N<sup>2</sup>)</em> как для наихудшего, так и для среднего случая, 
+но она становится ближе к <em>O(n)</em>, если список в основном упорядочен до применения алгоритма сортировки. </p>
+<p>Например, если каждый элемент находится на позиции, которая отличается не более чем на <em>k (k ≥ 1)</em> от позиции,
+в которой он собирается оказаться, сложность сортировки шейкера становится <em>O(kn)</em>.</p>
+<h3 id="_3">Реализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code> <span class="sd">&quot;&quot;&quot; https://en.wikipedia.org/wiki/Cocktail_shaker_sort &quot;&quot;&quot;</span>
 
 
@@ -382,6 +413,9 @@
     <span class="n">unsorted</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">user_input</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cocktail_shaker_sort</span><span class="p">(</span><span class="n">unsorted</span><span class="p">)</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+
+<h3 id="_4">Визуализация алгоритма<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="cocktail_shaker_sort" src="../../../../../img/algorithms/cocktail_shaker_sort.gif" /></p>
                 
               
               

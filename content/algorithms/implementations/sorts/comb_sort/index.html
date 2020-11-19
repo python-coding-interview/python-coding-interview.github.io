@@ -16,7 +16,7 @@
     
     
       
-        <title>Comb sort - Coding Interview</title>
+        <title>Сортировка расчёской (Comb Sort) - Coding Interview</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#comb-sort" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Comb sort
+              Сортировка расчёской (Comb Sort)
             
           </span>
         </div>
@@ -295,6 +295,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -311,7 +313,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    Сложность алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     Реализация алгоритма
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Визуализация алгоритма
   </a>
   
 </li>
@@ -332,10 +348,25 @@
                   
                 
                 
-                  <h1>Comb sort</h1>
-                
-                <h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h3 id="_2">Реализация алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+                <h1 id="comb-sort">Сортировка расчёской (Comb Sort)<a class="headerlink" href="#comb-sort" title="Permanent link">&para;</a></h1>
+<h3 id="_1">Описание алгоритма<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Улучшает сортировку пузырьком. В сортировке пузырьком, когда сравниваются два элемента, промежуток (расстояние друг от друга) равен 1. </p>
+<p>Основная идея «расчёски» в том, чтобы первоначально брать достаточно большое расстояние между сравниваемыми элементами 
+и по мере упорядочивания массива сужать это расстояние вплоть до минимального. 
+Таким образом, мы как бы причёсываем массив, постепенно разглаживая на всё более аккуратные пряди. 
+Первоначальный разрыв между сравниваемыми элементами лучше брать с учётом специальной величины, называемой фактором уменьшения, 
+оптимальное значение которой равно примерно <strong>1,247</strong>. 
+Сначала расстояние между элементами равно размеру массива, разделённого на фактор уменьшения (результат округляется до ближайшего целого). 
+Затем, пройдя массив с этим шагом, необходимо поделить шаг на фактор уменьшения и пройти по списку вновь. 
+Так продолжается до тех пор, пока разность индексов не достигнет единицы. В этом случае массив досортировывается обычным пузырьком.</p>
+<h3 id="_2">Сложность алгоритма<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Худшее время <em>O(n<sup>2</sup>)</em></li>
+<li>Лучшее время  <em>O(n logn)</em></li>
+<li>Среднее время <em>Ω(n<sup>2</sup> / 2<sup>p</sup>)</em>, где <em>p</em> - количество инкрементов.</li>
+<li>Затраты памяти <em>O(1)</em></li>
+</ul>
+<h3 id="_3">Реализация алгоритма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code> <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This is pure Python implementation of comb sort algorithm.</span>
 <span class="sd">Comb sort is a relatively simple sorting algorithm originally designed by Wlodzimierz</span>
@@ -401,6 +432,9 @@
     <span class="n">unsorted</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">user_input</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">comb_sort</span><span class="p">(</span><span class="n">unsorted</span><span class="p">))</span>
 </code></pre></div>
+
+<h3 id="_4">Визуализация алгоритма<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="comb_sort" src="../../../../../img/algorithms/comb_sort.gif" /></p>
                 
               
               
