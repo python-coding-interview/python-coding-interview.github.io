@@ -1,0 +1,1980 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../img/icon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.13">
+    
+    
+      
+        <title>Реализация алгоритмов - Coding Interview</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.077507d7.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009485">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Coding Interview" class="md-header-nav__button md-logo" aria-label="Coding Interview">
+      
+  <img src="../../../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Coding Interview
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Реализация алгоритмов
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Coding Interview" class="md-nav__button md-logo" aria-label="Coding Interview">
+      
+  <img src="../../../img/icon.png" alt="logo">
+
+    </a>
+    Coding Interview
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Главная" class="md-nav__link">
+      Главная
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Программирование
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Программирование" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Программирование
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../programming/" title="Требования" class="md-nav__link">
+      Требования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../programming/std/" title="Стандартная библиотека" class="md-nav__link">
+      Стандартная библиотека
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Алгоритмы
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Алгоритмы" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Алгоритмы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../theory/" title="Вычислительная сложность алгоритмов" class="md-nav__link">
+      Вычислительная сложность алгоритмов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Реализация алгоритмов
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Реализация алгоритмов" class="md-nav__link md-nav__link--active">
+      Реализация алгоритмов
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Арифметический анализ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backtracking" class="md-nav__link">
+    Поиск с возвратом (Backtracking)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Битовая манипуляция
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Блокчейн
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Алгебра логики
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Клеточные Автоматы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Шифры
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Алгоритмы Сжатия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Компьютерное зрение
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Конвертация
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    Структуры данных
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    Цифровая обработка изображений
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#divide-and-conquer" class="md-nav__link">
+    Разделяй и Влавствуй (Divide And Conquer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    Динамическое программирование
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    Передача файлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    Нечёткая логика
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    Генетические алгоритмы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    Геодезия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    Графика
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    Графы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greedy-method" class="md-nav__link">
+    Жадные алгоритмы (Greedy Method)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    Хеши
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    Линейная алгебра
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    Машинное обучение
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    Математика
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    Матрицы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    Транспортные сети
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    Нейронные сети
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    Другое
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-euler" class="md-nav__link">
+    Проект Эйлер (Project Euler)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    Квантовые вычисления
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    Планирование
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    Алгоритмы поиска
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    Алгоритмы сортировки
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    Строки
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    Алгоритмы обхода
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    Веб-разработка
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../questions/" title="Вопросы на собеседовании" class="md-nav__link">
+      Вопросы на собеседовании
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Арифметический анализ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backtracking" class="md-nav__link">
+    Поиск с возвратом (Backtracking)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Битовая манипуляция
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Блокчейн
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Алгебра логики
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Клеточные Автоматы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Шифры
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Алгоритмы Сжатия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Компьютерное зрение
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Конвертация
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    Структуры данных
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    Цифровая обработка изображений
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#divide-and-conquer" class="md-nav__link">
+    Разделяй и Влавствуй (Divide And Conquer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    Динамическое программирование
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    Передача файлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    Нечёткая логика
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    Генетические алгоритмы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    Геодезия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    Графика
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    Графы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greedy-method" class="md-nav__link">
+    Жадные алгоритмы (Greedy Method)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    Хеши
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    Линейная алгебра
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    Машинное обучение
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    Математика
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    Матрицы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    Транспортные сети
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    Нейронные сети
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    Другое
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-euler" class="md-nav__link">
+    Проект Эйлер (Project Euler)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    Квантовые вычисления
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    Планирование
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    Алгоритмы поиска
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    Алгоритмы сортировки
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    Строки
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    Алгоритмы обхода
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    Веб-разработка
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="python">Реализация алгоритмов на Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Арифметический анализ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/bisection.md">Bisection</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/gaussian_elimination.md">Gaussian Elimination</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/in_static_equilibrium.md">In Static Equilibrium</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/intersection.md">Intersection</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/lu_decomposition.md">Lu Decomposition</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/newton_forward_interpolation.md">Newton Forward Interpolation</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/newton_method.md">Newton Method</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/newton_raphson.md">Newton Raphson</a></li>
+<li><a href="docs/content/algorithms/implementations/arithmetic_analysis/secant_method.md">Secant Method</a></li>
+</ul>
+<h2 id="backtracking">Поиск с возвратом (Backtracking)<a class="headerlink" href="#backtracking" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/backtracking/all_combinations.md">All Combinations</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/all_permutations.md">All Permutations</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/all_subsequences.md">All Subsequences</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/coloring.md">Coloring</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/hamiltonian_cycle.md">Hamiltonian Cycle</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/knight_tour.md">Knight Tour</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/minimax.md">Minimax</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/n_queens.md">N Queens</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/n_queens_math.md">N Queens Math</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/rat_in_maze.md">Rat In Maze</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/sudoku.md">Sudoku</a></li>
+<li><a href="docs/content/algorithms/implementations/backtracking/sum_of_subsets.md">Sum Of Subsets</a></li>
+</ul>
+<h2 id="_2">Битовая манипуляция<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/bit_manipulation/binary_and_operator.md">Binary And Operator</a></li>
+<li><a href="docs/content/algorithms/implementations/bit_manipulation/binary_or_operator.md">Binary Or Operator</a></li>
+<li><a href="docs/content/algorithms/implementations/bit_manipulation/binary_xor_operator.md">Binary Xor Operator</a></li>
+</ul>
+<h2 id="_3">Блокчейн<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/blockchain/chinese_remainder_theorem.md">Chinese Remainder Theorem</a></li>
+<li><a href="docs/content/algorithms/implementations/blockchain/diophantine_equation.md">Diophantine Equation</a></li>
+<li><a href="docs/content/algorithms/implementations/blockchain/modular_division.md">Modular Division</a></li>
+</ul>
+<h2 id="_4">Алгебра логики<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/boolean_algebra/quine_mc_cluskey.md">Quine Mc Cluskey</a></li>
+</ul>
+<h2 id="_5">Клеточные Автоматы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/cellular_automata/one_dimensional.md">One Dimensional</a></li>
+</ul>
+<h2 id="_6">Шифры<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/ciphers/a1z26.md">A1Z26</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/affine_cipher.md">Affine Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/atbash.md">Atbash</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/base16.md">Base16</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/base32.md">Base32</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/base64_cipher.md">Base64 Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/base85.md">Base85</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/brute_force_caesar_cipher.md">Brute Force Caesar Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/caesar_cipher.md">Caesar Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/cryptomath_module.md">Cryptomath Module</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/decrypt_caesar_with_chi_squared.md">Decrypt Caesar With Chi Squared</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/deterministic_miller_rabin.md">Deterministic Miller Rabin</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/diffie.md">Diffie</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/elgamal_key_generator.md">Elgamal Key Generator</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/enigma_machine2.md">Enigma Machine2</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/hill_cipher.md">Hill Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/mixed_keyword_cypher.md">Mixed Keyword Cypher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/morse_code_implementation.md">Morse Code Implementation</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/onepad_cipher.md">Onepad Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/playfair_cipher.md">Playfair Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/porta_cipher.md">Porta Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/rabin_miller.md">Rabin Miller</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/rail_fence_cipher.md">Rail Fence Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/rot13.md">Rot13</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/rsa_cipher.md">Rsa Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/rsa_factorization.md">Rsa Factorization</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/rsa_key_generator.md">Rsa Key Generator</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/shuffled_shift_cipher.md">Shuffled Shift Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/simple_keyword_cypher.md">Simple Keyword Cypher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/simple_substitution_cipher.md">Simple Substitution Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/trafid_cipher.md">Trafid Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/transposition_cipher.md">Transposition Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/transposition_cipher_encrypt_decrypt_file.md">Transposition Cipher Encrypt Decrypt File</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/vigenere_cipher.md">Vigenere Cipher</a></li>
+<li><a href="docs/content/algorithms/implementations/ciphers/xor_cipher.md">Xor Cipher</a></li>
+</ul>
+<h2 id="_7">Алгоритмы Сжатия<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/compression/burrows_wheeler.md">Burrows Wheeler</a></li>
+<li><a href="docs/content/algorithms/implementations/compression/huffman.md">Huffman</a></li>
+<li><a href="docs/content/algorithms/implementations/compression/lempel_ziv.md">Lempel Ziv</a></li>
+<li><a href="docs/content/algorithms/implementations/compression/lempel_ziv_decompress.md">Lempel Ziv Decompress</a></li>
+<li><a href="docs/content/algorithms/implementations/compression/peak_signal_to_noise_ratio.md">Peak Signal To Noise Ratio</a></li>
+</ul>
+<h2 id="_8">Компьютерное зрение<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/computer_vision/harriscorner.md">Harriscorner</a></li>
+</ul>
+<h2 id="_9">Конвертация<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/conversions/binary_to_decimal.md">Binary To Decimal</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/binary_to_octal.md">Binary To Octal</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/decimal_to_any.md">Decimal To Any</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/decimal_to_binary.md">Decimal To Binary</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/decimal_to_binary_recursion.md">Decimal To Binary Recursion</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/decimal_to_hexadecimal.md">Decimal To Hexadecimal</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/decimal_to_octal.md">Decimal To Octal</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/hexadecimal_to_decimal.md">Hexadecimal To Decimal</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/prefix_conversions.md">Prefix Conversions</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/roman_to_integer.md">Roman To Integer</a></li>
+<li><a href="docs/content/algorithms/implementations/conversions/temperature_conversions.md">Temperature Conversions</a></li>
+</ul>
+<h2 id="_10">Структуры данных<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Двоичное Дерево (Binary Tree)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/avl_tree.md">Avl Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/basic_binary_tree.md">Basic Binary Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/binary_search_tree.md">Binary Search Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/binary_search_tree_recursive.md">Binary Search Tree Recursive</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/binary_tree_mirror.md">Binary Tree Mirror</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/fenwick_tree.md">Fenwick Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/lazy_segment_tree.md">Lazy Segment Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/lowest_common_ancestor.md">Lowest Common Ancestor</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/non_recursive_segment_tree.md">Non Recursive Segment Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/number_of_possible_binary_trees.md">Number Of Possible Binary Trees</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/red_black_tree.md">Red Black Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/segment_tree.md">Segment Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/segment_tree_other.md">Segment Tree Other</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/binary_tree/treap.md">Treap</a></li>
+</ul>
+</li>
+<li>Система непересекающихся множеств (Disjoint Set)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/disjoint_set/alternate_disjoint_set.md">Alternate Disjoint Set</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/disjoint_set/disjoint_set.md">Disjoint Set</a></li>
+</ul>
+</li>
+<li>Хеширование (Hashing)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/hashing/double_hash.md">Double Hash</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/hashing/hash_table.md">Hash Table</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/hashing/hash_table_with_linked_list.md">Hash Table With Linked List</a></li>
+<li>Теория Чисел (Number Theory)</li>
+<li><a href="docs/content/algorithms/implementations/data_structures/hashing/number_theory/prime_numbers.md">Prime Numbers</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/hashing/quadratic_probing.md">Quadratic Probing</a></li>
+</ul>
+</li>
+<li>Куча (Heap)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/heap/binomial_heap.md">Binomial Heap</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/heap/heap.md">Heap</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/heap/heap_generic.md">Heap Generic</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/heap/max_heap.md">Max Heap</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/heap/min_heap.md">Min Heap</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/heap/randomized_heap.md">Randomized Heap</a></li>
+</ul>
+</li>
+<li>Связные списки (Linked List)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/circular_linked_list.md">Circular Linked List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/deque_doubly.md">Deque Doubly</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/doubly_linked_list.md">Doubly Linked List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/from_sequence.md">From Sequence</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/has_loop.md">Has Loop</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/is_palindrome.md">Is Palindrome</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/middle_element_of_linked_list.md">Middle Element Of Linked List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/print_reverse.md">Print Reverse</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/singly_linked_list.md">Singly Linked List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/skip_list.md">Skip List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/linked_list/swap_nodes.md">Swap Nodes</a></li>
+</ul>
+</li>
+<li>Очереди (Queue)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/queue/circular_queue.md">Circular Queue</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/queue/double_ended_queue.md">Double Ended Queue</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/queue/linked_queue.md">Linked Queue</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/queue/priority_queue_using_list.md">Priority Queue Using List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/queue/queue_on_list.md">Queue On List</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/queue/queue_on_pseudo_stack.md">Queue On Pseudo Stack</a></li>
+</ul>
+</li>
+<li>Стеки (Stacks)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/balanced_parentheses.md">Balanced Parentheses</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/dijkstras_two_stack_algorithm.md">Dijkstras Two Stack Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/infix_to_postfix_conversion.md">Infix To Postfix Conversion</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/infix_to_prefix_conversion.md">Infix To Prefix Conversion</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/linked_stack.md">Linked Stack</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/next_greater_element.md">Next Greater Element</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/postfix_evaluation.md">Postfix Evaluation</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/prefix_evaluation.md">Prefix Evaluation</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/stack.md">Stack</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/stack_using_dll.md">Stack Using Dll</a></li>
+<li><a href="docs/content/algorithms/implementations/data_structures/stacks/stock_span_problem.md">Stock Span Problem</a></li>
+</ul>
+</li>
+<li>Префиксное дерево (Trie)<ul>
+<li><a href="docs/content/algorithms/implementations/data_structures/trie/trie.md">Trie</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_11">Цифровая обработка изображений<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/change_brightness.md">Change Brightness</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/change_contrast.md">Change Contrast</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/convert_to_negative.md">Convert To Negative</a></li>
+<li>Дизеринг (Dithering)<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/dithering/burkes.md">Burkes</a></li>
+</ul>
+</li>
+<li>Выделение границ (Edge Detection)<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/edge_detection/canny.md">Canny</a></li>
+</ul>
+</li>
+<li>Фильтрация (Filters)<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/filters/bilateral_filter.md">Bilateral Filter</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/filters/convolve.md">Convolve</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/filters/gaussian_filter.md">Gaussian Filter</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/filters/median_filter.md">Median Filter</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/filters/sobel_filter.md">Sobel Filter</a></li>
+</ul>
+</li>
+<li>Эквализация гистограмм (Histogram Equalization)<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/histogram_equalization/histogram_stretch.md">Histogram Stretch</a></li>
+</ul>
+</li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/index_calculation.md">Index Calculation</a></li>
+<li>Изменение размера (Resize)<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/resize/resize.md">Resize</a></li>
+</ul>
+</li>
+<li>Вращение (Rotation)<ul>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/rotation/rotation.md">Rotation</a></li>
+</ul>
+</li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/sepia.md">Sepia</a></li>
+<li><a href="docs/content/algorithms/implementations/digital_image_processing/test_digital_image_processing.md">Test Digital Image Processing</a></li>
+</ul>
+<h2 id="divide-and-conquer">Разделяй и Влавствуй (Divide And Conquer)<a class="headerlink" href="#divide-and-conquer" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/closest_pair_of_points.md">Closest Pair Of Points</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/convex_hull.md">Convex Hull</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/heaps_algorithm.md">Heaps Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/heaps_algorithm_iterative.md">Heaps Algorithm Iterative</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/inversions.md">Inversions</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/max_subarray_sum.md">Max Subarray Sum</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/mergesort.md">Mergesort</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/power.md">Power</a></li>
+<li><a href="docs/content/algorithms/implementations/divide_and_conquer/strassen_matrix_multiplication.md">Strassen Matrix Multiplication</a></li>
+</ul>
+<h2 id="_12">Динамическое программирование<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/abbreviation.md">Abbreviation</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/bitmask.md">Bitmask</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/climbing_stairs.md">Climbing Stairs</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/coin_change.md">Coin Change</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/edit_distance.md">Edit Distance</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/factorial.md">Factorial</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/fast_fibonacci.md">Fast Fibonacci</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/fibonacci.md">Fibonacci</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/floyd_warshall.md">Floyd Warshall</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/fractional_knapsack.md">Fractional Knapsack</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/fractional_knapsack_2.md">Fractional Knapsack 2</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/integer_partition.md">Integer Partition</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/iterating_through_submasks.md">Iterating Through Submasks</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/knapsack.md">Knapsack</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/longest_common_subsequence.md">Longest Common Subsequence</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/longest_increasing_subsequence.md">Longest Increasing Subsequence</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/longest_increasing_subsequence_o(nlogn).md">Longest Increasing Subsequence O(Nlogn)</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/longest_sub_array.md">Longest Sub Array</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/matrix_chain_order.md">Matrix Chain Order</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/max_non_adjacent_sum.md">Max Non Adjacent Sum</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/max_sub_array.md">Max Sub Array</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/max_sum_contiguous_subsequence.md">Max Sum Contiguous Subsequence</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/minimum_cost_path.md">Minimum Cost Path</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/minimum_partition.md">Minimum Partition</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/optimal_binary_search_tree.md">Optimal Binary Search Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/rod_cutting.md">Rod Cutting</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/subset_generation.md">Subset Generation</a></li>
+<li><a href="docs/content/algorithms/implementations/dynamic_programming/sum_of_subset.md">Sum Of Subset</a></li>
+</ul>
+<h2 id="_13">Передача файлов<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/file_transfer/receive_file.md">Receive File</a></li>
+<li><a href="docs/content/algorithms/implementations/file_transfer/send_file.md">Send File</a></li>
+<li>Tests<ul>
+<li><a href="docs/content/algorithms/implementations/file_transfer/tests/test_send_file.md">Test Send File</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_14">Нечёткая логика<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/fuzzy_logic/fuzzy_operations.md">Fuzzy Operations</a></li>
+</ul>
+<h2 id="_15">Генетические алгоритмы<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/genetic_algorithm/basic_string.md">Basic String</a></li>
+</ul>
+<h2 id="_16">Геодезия<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/geodesy/haversine_distance.md">Haversine Distance</a></li>
+<li><a href="docs/content/algorithms/implementations/geodesy/lamberts_ellipsoidal_distance.md">Lamberts Ellipsoidal Distance</a></li>
+</ul>
+<h2 id="_17">Графика<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/graphics/bezier_curve.md">Bezier Curve</a></li>
+<li><a href="docs/content/algorithms/implementations/graphics/vector3_for_2d_rendering.md">Vector3 For 2D Rendering</a></li>
+</ul>
+<h2 id="_18">Графы<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/graphs/a_star.md">A Star</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/articulation_points.md">Articulation Points</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/basic_graphs.md">Basic Graphs</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/bellman_ford.md">Bellman Ford</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/bfs_shortest_path.md">Bfs Shortest Path</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/bidirectional_a_star.md">Bidirectional A Star</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/bidirectional_breadth_first_search.md">Bidirectional Breadth First Search</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/breadth_first_search.md">Breadth First Search</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/breadth_first_search_2.md">Breadth First Search 2</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/breadth_first_search_shortest_path.md">Breadth First Search Shortest Path</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/check_bipartite_graph_bfs.md">Check Bipartite Graph Bfs</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/check_bipartite_graph_dfs.md">Check Bipartite Graph Dfs</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/connected_components.md">Connected Components</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/depth_first_search.md">Depth First Search</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/depth_first_search_2.md">Depth First Search 2</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/dijkstra.md">Dijkstra</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/dijkstra_2.md">Dijkstra 2</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/dijkstra_algorithm.md">Dijkstra Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/dinic.md">Dinic</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/directed_and_undirected_(weighted)_graph.md">Directed And Undirected (Weighted) Graph</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/edmonds_karp_multiple_source_and_sink.md">Edmonds Karp Multiple Source And Sink</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/eulerian_path_and_circuit_for_undirected_graph.md">Eulerian Path And Circuit For Undirected Graph</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/even_tree.md">Even Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/finding_bridges.md">Finding Bridges</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/frequent_pattern_graph_miner.md">Frequent Pattern Graph Miner</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/g_topological_sort.md">G Topological Sort</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/gale_shapley_bigraph.md">Gale Shapley Bigraph</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/graph_list.md">Graph List</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/graph_matrix.md">Graph Matrix</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/graphs_floyd_warshall.md">Graphs Floyd Warshall</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/greedy_best_first.md">Greedy Best First</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/kahns_algorithm_long.md">Kahns Algorithm Long</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/kahns_algorithm_topo.md">Kahns Algorithm Topo</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/karger.md">Karger</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/minimum_spanning_tree_boruvka.md">Minimum Spanning Tree Boruvka</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/minimum_spanning_tree_kruskal.md">Minimum Spanning Tree Kruskal</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/minimum_spanning_tree_kruskal2.md">Minimum Spanning Tree Kruskal2</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/minimum_spanning_tree_prims.md">Minimum Spanning Tree Prims</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/minimum_spanning_tree_prims2.md">Minimum Spanning Tree Prims2</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/multi_heuristic_astar.md">Multi Heuristic Astar</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/page_rank.md">Page Rank</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/prim.md">Prim</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/scc_kosaraju.md">Scc Kosaraju</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/strongly_connected_components.md">Strongly Connected Components</a></li>
+<li><a href="docs/content/algorithms/implementations/graphs/tarjans_scc.md">Tarjans Scc</a></li>
+<li>Tests<ul>
+<li><a href="docs/content/algorithms/implementations/graphs/tests/test_min_spanning_tree_kruskal.md">Test Min Spanning Tree Kruskal</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="greedy-method">Жадные алгоритмы (Greedy Method)<a class="headerlink" href="#greedy-method" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/greedy_method/greedy_knapsack.md">Greedy Knapsack</a></li>
+<li><a href="docs/content/algorithms/implementations/greedy_method/test_knapsack.md">Test Knapsack</a></li>
+</ul>
+<h2 id="_19">Хеши<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/hashes/adler32.md">Adler32</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/chaos_machine.md">Chaos Machine</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/djb2.md">Djb2</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/enigma_machine.md">Enigma Machine</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/hamming_code.md">Hamming Code</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/md5.md">Md5</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/sdbm.md">Sdbm</a></li>
+<li><a href="docs/content/algorithms/implementations/hashes/sha1.md">Sha1</a></li>
+</ul>
+<h2 id="_20">Линейная алгебра<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Src<ul>
+<li><a href="docs/content/algorithms/implementations/linear_algebra/src/lib.md">Lib</a></li>
+<li><a href="docs/content/algorithms/implementations/linear_algebra/src/polynom_for_points.md">Polynom For Points</a></li>
+<li><a href="docs/content/algorithms/implementations/linear_algebra/src/power_iteration.md">Power Iteration</a></li>
+<li><a href="docs/content/algorithms/implementations/linear_algebra/src/rayleigh_quotient.md">Rayleigh Quotient</a></li>
+<li><a href="docs/content/algorithms/implementations/linear_algebra/src/test_linear_algebra.md">Test Linear Algebra</a></li>
+<li><a href="docs/content/algorithms/implementations/linear_algebra/src/transformations_2d.md">Transformations 2D</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_21">Машинное обучение<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/machine_learning/astar.md">Astar</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/data_transformations.md">Data Transformations</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/decision_tree.md">Decision Tree</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/gaussian_naive_bayes.md">Gaussian Naive Bayes</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/gradient_boosting_regressor.md">Gradient Boosting Regressor</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/gradient_descent.md">Gradient Descent</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/k_means_clust.md">K Means Clust</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/k_nearest_neighbours.md">K Nearest Neighbours</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/knn_sklearn.md">Knn Sklearn</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/linear_discriminant_analysis.md">Linear Discriminant Analysis</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/linear_regression.md">Linear Regression</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/logistic_regression.md">Logistic Regression</a></li>
+<li>Lstm<ul>
+<li><a href="docs/content/algorithms/implementations/machine_learning/lstm/lstm_prediction.md">Lstm Prediction</a></li>
+</ul>
+</li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/multilayer_perceptron_classifier.md">Multilayer Perceptron Classifier</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/polymonial_regression.md">Polymonial Regression</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/random_forest_classifier.md">Random Forest Classifier</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/random_forest_regressor.md">Random Forest Regressor</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/scoring_functions.md">Scoring Functions</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/sequential_minimum_optimization.md">Sequential Minimum Optimization</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/support_vector_machines.md">Support Vector Machines</a></li>
+<li><a href="docs/content/algorithms/implementations/machine_learning/word_frequency_functions.md">Word Frequency Functions</a></li>
+</ul>
+<h2 id="_22">Математика<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/maths/3n_plus_1.md">3N Plus 1</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/abs.md">Abs</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/abs_max.md">Abs Max</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/abs_min.md">Abs Min</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/add.md">Add</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/aliquot_sum.md">Aliquot Sum</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/allocation_number.md">Allocation Number</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/area.md">Area</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/area_under_curve.md">Area Under Curve</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/armstrong_numbers.md">Armstrong Numbers</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/average_mean.md">Average Mean</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/average_median.md">Average Median</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/average_mode.md">Average Mode</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/bailey_borwein_plouffe.md">Bailey Borwein Plouffe</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/basic_maths.md">Basic Maths</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/binary_exp_mod.md">Binary Exp Mod</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/binary_exponentiation.md">Binary Exponentiation</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/binomial_coefficient.md">Binomial Coefficient</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/binomial_distribution.md">Binomial Distribution</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/bisection.md">Bisection</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/ceil.md">Ceil</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/chudnovsky_algorithm.md">Chudnovsky Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/collatz_sequence.md">Collatz Sequence</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/combinations.md">Combinations</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/entropy.md">Entropy</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/eulers_totient.md">Eulers Totient</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/explicit_euler.md">Explicit Euler</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/extended_euclidean_algorithm.md">Extended Euclidean Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/factorial_iterative.md">Factorial Iterative</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/factorial_python.md">Factorial Python</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/factorial_recursive.md">Factorial Recursive</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/factors.md">Factors</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/fermat_little_theorem.md">Fermat Little Theorem</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/fibonacci.md">Fibonacci</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/fibonacci_sequence_recursion.md">Fibonacci Sequence Recursion</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/find_max.md">Find Max</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/find_max_recursion.md">Find Max Recursion</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/find_min.md">Find Min</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/find_min_recursion.md">Find Min Recursion</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/floor.md">Floor</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/gamma.md">Gamma</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/gaussian.md">Gaussian</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/greatest_common_divisor.md">Greatest Common Divisor</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/hardy_ramanujanalgo.md">Hardy Ramanujanalgo</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/is_square_free.md">Is Square Free</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/jaccard_similarity.md">Jaccard Similarity</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/kadanes.md">Kadanes</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/karatsuba.md">Karatsuba</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/krishnamurthy_number.md">Krishnamurthy Number</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/kth_lexicographic_permutation.md">Kth Lexicographic Permutation</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/largest_of_very_large_numbers.md">Largest Of Very Large Numbers</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/least_common_multiple.md">Least Common Multiple</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/line_length.md">Line Length</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/lucas_lehmer_primality_test.md">Lucas Lehmer Primality Test</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/lucas_series.md">Lucas Series</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/matrix_exponentiation.md">Matrix Exponentiation</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/miller_rabin.md">Miller Rabin</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/mobius_function.md">Mobius Function</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/modular_exponential.md">Modular Exponential</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/monte_carlo.md">Monte Carlo</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/monte_carlo_dice.md">Monte Carlo Dice</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/newton_raphson.md">Newton Raphson</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/number_of_digits.md">Number Of Digits</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/numerical_integration.md">Numerical Integration</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/perfect_cube.md">Perfect Cube</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/perfect_number.md">Perfect Number</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/perfect_square.md">Perfect Square</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/pi_monte_carlo_estimation.md">Pi Monte Carlo Estimation</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/polynomial_evaluation.md">Polynomial Evaluation</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/power_using_recursion.md">Power Using Recursion</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/prime_check.md">Prime Check</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/prime_factors.md">Prime Factors</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/prime_numbers.md">Prime Numbers</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/prime_sieve_eratosthenes.md">Prime Sieve Eratosthenes</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/pythagoras.md">Pythagoras</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/qr_decomposition.md">Qr Decomposition</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/quadratic_equations_complex_numbers.md">Quadratic Equations Complex Numbers</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/radians.md">Radians</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/radix2_fft.md">Radix2 Fft</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/relu.md">Relu</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/runge_kutta.md">Runge Kutta</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/segmented_sieve.md">Segmented Sieve</a></li>
+<li>Ряды<ul>
+<li><a href="docs/content/algorithms/implementations/maths/series/geometric_series.md">Geometric Series</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/series/harmonic_series.md">Harmonic Series</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/series/p_series.md">P Series</a></li>
+</ul>
+</li>
+<li><a href="docs/content/algorithms/implementations/maths/sieve_of_eratosthenes.md">Sieve Of Eratosthenes</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/simpson_rule.md">Simpson Rule</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/softmax.md">Softmax</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/square_root.md">Square Root</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/sum_of_arithmetic_series.md">Sum Of Arithmetic Series</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/sum_of_digits.md">Sum Of Digits</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/sum_of_geometric_progression.md">Sum Of Geometric Progression</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/test_prime_check.md">Test Prime Check</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/trapezoidal_rule.md">Trapezoidal Rule</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/ugly_numbers.md">Ugly Numbers</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/volume.md">Volume</a></li>
+<li><a href="docs/content/algorithms/implementations/maths/zellers_congruence.md">Zellers Congruence</a></li>
+</ul>
+<h2 id="_23">Матрицы<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/matrix/count_islands_in_matrix.md">Count Islands In Matrix</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/inverse_of_matrix.md">Inverse Of Matrix</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/matrix_class.md">Matrix Class</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/matrix_operation.md">Matrix Operation</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/nth_fibonacci_using_matrix_exponentiation.md">Nth Fibonacci Using Matrix Exponentiation</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/rotate_matrix.md">Rotate Matrix</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/searching_in_sorted_matrix.md">Searching In Sorted Matrix</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/sherman_morrison.md">Sherman Morrison</a></li>
+<li><a href="docs/content/algorithms/implementations/matrix/spiral_print.md">Spiral Print</a></li>
+<li>Tests<ul>
+<li><a href="docs/content/algorithms/implementations/matrix/tests/test_matrix_operation.md">Test Matrix Operation</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_24">Транспортные сети<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/networking_flow/ford_fulkerson.md">Ford Fulkerson</a></li>
+<li><a href="docs/content/algorithms/implementations/networking_flow/minimum_cut.md">Minimum Cut</a></li>
+</ul>
+<h2 id="_25">Нейронные сети<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/neural_network/back_propagation_neural_network.md">Back Propagation Neural Network</a></li>
+<li><a href="docs/content/algorithms/implementations/neural_network/convolution_neural_network.md">Convolution Neural Network</a></li>
+<li><a href="docs/content/algorithms/implementations/neural_network/perceptron.md">Perceptron</a></li>
+</ul>
+<h2 id="_26">Другое<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/other/activity_selection.md">Activity Selection</a></li>
+<li><a href="docs/content/algorithms/implementations/other/anagrams.md">Anagrams</a></li>
+<li><a href="docs/content/algorithms/implementations/other/autocomplete_using_trie.md">Autocomplete Using Trie</a></li>
+<li><a href="docs/content/algorithms/implementations/other/binary_exponentiation.md">Binary Exponentiation</a></li>
+<li><a href="docs/content/algorithms/implementations/other/binary_exponentiation_2.md">Binary Exponentiation 2</a></li>
+<li><a href="docs/content/algorithms/implementations/other/detecting_english_programmatically.md">Detecting English Programmatically</a></li>
+<li><a href="docs/content/algorithms/implementations/other/dijkstra_bankers_algorithm.md">Dijkstra Bankers Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/other/doomsday.md">Doomsday</a></li>
+<li><a href="docs/content/algorithms/implementations/other/euclidean_gcd.md">Euclidean Gcd</a></li>
+<li><a href="docs/content/algorithms/implementations/other/fischer_yates_shuffle.md">Fischer Yates Shuffle</a></li>
+<li><a href="docs/content/algorithms/implementations/other/frequency_finder.md">Frequency Finder</a></li>
+<li><a href="docs/content/algorithms/implementations/other/game_of_life.md">Game Of Life</a></li>
+<li><a href="docs/content/algorithms/implementations/other/gauss_easter.md">Gauss Easter</a></li>
+<li><a href="docs/content/algorithms/implementations/other/greedy.md">Greedy</a></li>
+<li><a href="docs/content/algorithms/implementations/other/integeration_by_simpson_approx.md">Integeration By Simpson Approx</a></li>
+<li><a href="docs/content/algorithms/implementations/other/largest_subarray_sum.md">Largest Subarray Sum</a></li>
+<li><a href="docs/content/algorithms/implementations/other/least_recently_used.md">Least Recently Used</a></li>
+<li><a href="docs/content/algorithms/implementations/other/lfu_cache.md">Lfu Cache</a></li>
+<li><a href="docs/content/algorithms/implementations/other/linear_congruential_generator.md">Linear Congruential Generator</a></li>
+<li><a href="docs/content/algorithms/implementations/other/lru_cache.md">Lru Cache</a></li>
+<li><a href="docs/content/algorithms/implementations/other/magicdiamondpattern.md">Magicdiamondpattern</a></li>
+<li><a href="docs/content/algorithms/implementations/other/markov_chain.md">Markov Chain</a></li>
+<li><a href="docs/content/algorithms/implementations/other/max_sum_sliding_window.md">Max Sum Sliding Window</a></li>
+<li><a href="docs/content/algorithms/implementations/other/nested_brackets.md">Nested Brackets</a></li>
+<li><a href="docs/content/algorithms/implementations/other/palindrome.md">Palindrome</a></li>
+<li><a href="docs/content/algorithms/implementations/other/password_generator.md">Password Generator</a></li>
+<li><a href="docs/content/algorithms/implementations/other/primelib.md">Primelib</a></li>
+<li><a href="docs/content/algorithms/implementations/other/scoring_algorithm.md">Scoring Algorithm</a></li>
+<li><a href="docs/content/algorithms/implementations/other/sdes.md">Sdes</a></li>
+<li><a href="docs/content/algorithms/implementations/other/sierpinski_triangle.md">Sierpinski Triangle</a></li>
+<li><a href="docs/content/algorithms/implementations/other/tower_of_hanoi.md">Tower Of Hanoi</a></li>
+<li><a href="docs/content/algorithms/implementations/other/triplet_sum.md">Triplet Sum</a></li>
+<li><a href="docs/content/algorithms/implementations/other/two_sum.md">Two Sum</a></li>
+<li><a href="docs/content/algorithms/implementations/other/word_patterns.md">Word Patterns</a></li>
+</ul>
+<h2 id="project-euler">Проект Эйлер (Project Euler)<a class="headerlink" href="#project-euler" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Problem 01<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol3.md">Sol3</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol4.md">Sol4</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol5.md">Sol5</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol6.md">Sol6</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_01/sol7.md">Sol7</a></li>
+</ul>
+</li>
+<li>Problem 02<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_02/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_02/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_02/sol3.md">Sol3</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_02/sol4.md">Sol4</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_02/sol5.md">Sol5</a></li>
+</ul>
+</li>
+<li>Problem 03<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_03/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_03/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_03/sol3.md">Sol3</a></li>
+</ul>
+</li>
+<li>Problem 04<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_04/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_04/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 05<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_05/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_05/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 06<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_06/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_06/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_06/sol3.md">Sol3</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_06/sol4.md">Sol4</a></li>
+</ul>
+</li>
+<li>Problem 07<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_07/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_07/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_07/sol3.md">Sol3</a></li>
+</ul>
+</li>
+<li>Problem 08<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_08/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_08/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_08/sol3.md">Sol3</a></li>
+</ul>
+</li>
+<li>Problem 09<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_09/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_09/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_09/sol3.md">Sol3</a></li>
+</ul>
+</li>
+<li>Problem 10<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_10/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_10/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_10/sol3.md">Sol3</a></li>
+</ul>
+</li>
+<li>Problem 11<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_11/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_11/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 112<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_112/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 119<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_119/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 12<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_12/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_12/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 120<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_120/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 125<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_125/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 13<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_13/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 14<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_14/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_14/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 15<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_15/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 16<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_16/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_16/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 17<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_17/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 18<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_18/solution.md">Solution</a></li>
+</ul>
+</li>
+<li>Problem 19<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_19/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 191<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_191/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 20<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_20/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_20/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_20/sol3.md">Sol3</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_20/sol4.md">Sol4</a></li>
+</ul>
+</li>
+<li>Problem 21<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_21/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 22<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_22/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_22/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 23<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_23/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 234<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_234/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 24<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_24/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 25<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_25/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_25/sol2.md">Sol2</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_25/sol3.md">Sol3</a></li>
+</ul>
+</li>
+<li>Problem 26<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_26/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 27<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_27/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 28<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_28/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 29<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_29/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 30<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_30/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 31<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_31/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_31/sol2.md">Sol2</a></li>
+</ul>
+</li>
+<li>Problem 32<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_32/sol32.md">Sol32</a></li>
+</ul>
+</li>
+<li>Problem 33<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_33/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 34<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_34/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 35<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_35/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 36<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_36/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 37<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_37/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 39<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_39/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 40<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_40/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 41<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_41/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 42<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_42/solution42.md">Solution42</a></li>
+</ul>
+</li>
+<li>Problem 43<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_43/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 44<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_44/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 45<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_45/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 46<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_46/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 47<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_47/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 48<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_48/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 49<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_49/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 51<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_51/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 52<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_52/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 53<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_53/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 54<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_54/sol1.md">Sol1</a></li>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_54/test_poker_hand.md">Test Poker Hand</a></li>
+</ul>
+</li>
+<li>Problem 55<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_55/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 551<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_551/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 56<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_56/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 63<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_63/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 67<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_67/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 69<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_69/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 71<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_71/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 72<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_72/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 76<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_76/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 80<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_80/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 97<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_97/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li>Problem 99<ul>
+<li><a href="docs/content/algorithms/implementations/project_euler/problem_99/sol1.md">Sol1</a></li>
+</ul>
+</li>
+<li><a href="docs/content/algorithms/implementations/project_euler/validate_solutions.md">Validate Solutions</a></li>
+</ul>
+<h2 id="_27">Квантовые вычисления<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/quantum/not_gate.md">Not Gate</a></li>
+<li><a href="docs/content/algorithms/implementations/quantum/quantum_entanglement.md">Quantum Entanglement</a></li>
+<li><a href="docs/content/algorithms/implementations/quantum/single_qubit_measure.md">Single Qubit Measure</a></li>
+</ul>
+<h2 id="_28">Планирование<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/scheduling/first_come_first_served.md">First Come First Served</a></li>
+<li><a href="docs/content/algorithms/implementations/scheduling/round_robin.md">Round Robin</a></li>
+<li><a href="docs/content/algorithms/implementations/scheduling/shortest_job_first.md">Shortest Job First</a></li>
+</ul>
+<h2 id="_29">Алгоритмы поиска<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/searches/binary_search.md">Binary Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/double_linear_search.md">Double Linear Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/double_linear_search_recursion.md">Double Linear Search Recursion</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/fibonacci_search.md">Fibonacci Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/hill_climbing.md">Hill Climbing</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/interpolation_search.md">Interpolation Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/jump_search.md">Jump Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/linear_search.md">Linear Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/quick_select.md">Quick Select</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/sentinel_linear_search.md">Sentinel Linear Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/simple_binary_search.md">Simple Binary Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/simulated_annealing.md">Simulated Annealing</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/tabu_search.md">Tabu Search</a></li>
+<li><a href="docs/content/algorithms/implementations/searches/ternary_search.md">Ternary Search</a></li>
+</ul>
+<h2 id="_30">Алгоритмы сортировки<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="sorts/bead_sort/">Bead Sort</a></li>
+<li><a href="sorts/bitonic_sort/">Bitonic Sort</a></li>
+<li><a href="sorts/bogo_sort/">Bogo Sort</a></li>
+<li><a href="sorts/bubble_sort/">Сортировка пузырьком (Bubble Sort)</a></li>
+<li><a href="sorts/bucket_sort/">Bucket Sort</a></li>
+<li><a href="sorts/cocktail_shaker_sort/">Cocktail Shaker Sort</a></li>
+<li><a href="sorts/comb_sort/">Comb Sort</a></li>
+<li><a href="sorts/counting_sort/">Counting Sort</a></li>
+<li><a href="sorts/cycle_sort/">Cycle Sort</a></li>
+<li><a href="sorts/double_sort/">Double Sort</a></li>
+<li><a href="sorts/external_sort/">External Sort</a></li>
+<li><a href="sorts/gnome_sort/">Gnome Sort</a></li>
+<li><a href="sorts/heap_sort/">Heap Sort</a></li>
+<li><a href="sorts/insertion_sort/">Insertion Sort</a></li>
+<li><a href="sorts/iterative_merge_sort/">Iterative Merge Sort</a></li>
+<li><a href="sorts/merge_insertion_sort/">Merge Insertion Sort</a></li>
+<li><a href="sorts/merge_sort/">Merge Sort</a></li>
+<li><a href="sorts/odd_even_transposition_parallel/">Odd Even Transposition Parallel</a></li>
+<li><a href="sorts/odd_even_transposition_single_threaded/">Odd Even Transposition Single Threaded</a></li>
+<li><a href="sorts/pancake_sort/">Pancake Sort</a></li>
+<li><a href="sorts/pigeon_sort/">Pigeon Sort</a></li>
+<li><a href="sorts/pigeonhole_sort/">Pigeonhole Sort</a></li>
+<li><a href="sorts/quick_sort/">Quick Sort</a></li>
+<li><a href="sorts/quick_sort_3_partition/">Quick Sort 3 Partition</a></li>
+<li><a href="sorts/radix_sort/">Radix Sort</a></li>
+<li><a href="sorts/random_normal_distribution_quicksort/">Random Normal Distribution Quicksort</a></li>
+<li><a href="sorts/random_pivot_quick_sort/">Random Pivot Quick Sort</a></li>
+<li><a href="sorts/recursive_bubble_sort/">Recursive Bubble Sort</a></li>
+<li><a href="sorts/recursive_insertion_sort/">Recursive Insertion Sort</a></li>
+<li><a href="sorts/recursive_quick_sort/">Recursive Quick Sort</a></li>
+<li><a href="sorts/selection_sort/">Selection Sort</a></li>
+<li><a href="sorts/shell_sort/">Shell Sort</a></li>
+<li><a href="sorts/stooge_sort/">Stooge Sort</a></li>
+<li><a href="sorts/strand_sort/">Strand Sort</a></li>
+<li><a href="sorts/tim_sort/">Tim Sort</a></li>
+<li><a href="sorts/topological_sort/">Topological Sort</a></li>
+<li><a href="sorts/tree_sort/">Tree Sort</a></li>
+<li><a href="sorts/unknown_sort/">Unknown Sort</a></li>
+<li><a href="sorts/wiggle_sort/">Wiggle Sort</a></li>
+</ul>
+<h2 id="_31">Строки<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/strings/aho_corasick.md">Aho Corasick</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/boyer_moore_search.md">Boyer Moore Search</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/can_string_be_rearranged_as_palindrome.md">Can String Be Rearranged As Palindrome</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/capitalize.md">Capitalize</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/check_anagrams.md">Check Anagrams</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/check_pangram.md">Check Pangram</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/is_palindrome.md">Is Palindrome</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/jaro_winkler.md">Jaro Winkler</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/knuth_morris_pratt.md">Knuth Morris Pratt</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/levenshtein_distance.md">Levenshtein Distance</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/lower.md">Lower</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/manacher.md">Manacher</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/min_cost_string_conversion.md">Min Cost String Conversion</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/naive_string_search.md">Naive String Search</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/prefix_function.md">Prefix Function</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/rabin_karp.md">Rabin Karp</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/remove_duplicate.md">Remove Duplicate</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/reverse_words.md">Reverse Words</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/split.md">Split</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/upper.md">Upper</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/word_occurrence.md">Word Occurrence</a></li>
+<li><a href="docs/content/algorithms/implementations/strings/z_function.md">Z Function</a></li>
+</ul>
+<h2 id="_32">Алгоритмы обхода<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/traversals/binary_tree_traversals.md">Binary Tree Traversals</a></li>
+</ul>
+<h2 id="-">Веб-разработка<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="docs/content/algorithms/implementations/web_programming/co2_emission.md">Co2 Emission</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/covid_stats_via_xpath.md">Covid Stats Via Xpath</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/crawl_google_results.md">Crawl Google Results</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/current_stock_price.md">Current Stock Price</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/current_weather.md">Current Weather</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/daily_horoscope.md">Daily Horoscope</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/emails_from_url.md">Emails From Url</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/fetch_bbc_news.md">Fetch Bbc News</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/fetch_github_info.md">Fetch Github Info</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/fetch_jobs.md">Fetch Jobs</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/get_imdb_top_250_movies_csv.md">Get Imdb Top 250 Movies Csv</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/get_imdbtop.md">Get Imdbtop</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/instagram_crawler.md">Instagram Crawler</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/recaptcha_verification.md">Recaptcha Verification</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/slack_message.md">Slack Message</a></li>
+<li><a href="docs/content/algorithms/implementations/web_programming/world_covid19_stats.md">World Covid19 Stats</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../theory/" title="Вычислительная сложность алгоритмов" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                Вычислительная сложность алгоритмов
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../questions/" title="Вопросы на собеседовании" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Вопросы на собеседовании
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
+      
+        <script src="../../../js/termynal.js"></script>
+      
+        <script src="../../../js/custom.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

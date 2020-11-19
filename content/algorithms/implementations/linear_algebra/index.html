@@ -1,0 +1,505 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../img/icon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.13">
+    
+    
+      
+        <title>Linear algebra library for Python - Coding Interview</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.077507d7.min.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009485">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linear-algebra-library-for-python" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="Coding Interview" class="md-header-nav__button md-logo" aria-label="Coding Interview">
+      
+  <img src="../../../../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Coding Interview
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Linear algebra library for Python
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Coding Interview" class="md-nav__button md-logo" aria-label="Coding Interview">
+      
+  <img src="../../../../img/icon.png" alt="logo">
+
+    </a>
+    Coding Interview
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Главная" class="md-nav__link">
+      Главная
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Программирование
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Программирование" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Программирование
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../programming/" title="Требования" class="md-nav__link">
+      Требования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../programming/std/" title="Стандартная библиотека" class="md-nav__link">
+      Стандартная библиотека
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Алгоритмы
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Алгоритмы" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Алгоритмы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../theory/" title="Вычислительная сложность алгоритмов" class="md-nav__link">
+      Вычислительная сложность алгоритмов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Реализация алгоритмов" class="md-nav__link">
+      Реализация алгоритмов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../questions/" title="Вопросы на собеседовании" class="md-nav__link">
+      Вопросы на собеседовании
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-vector" class="md-nav__link">
+    class Vector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-matrix" class="md-nav__link">
+    class Matrix
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    Tests
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="linear-algebra-library-for-python">Linear algebra library for Python<a class="headerlink" href="#linear-algebra-library-for-python" title="Permanent link">&para;</a></h1>
+<p>This module contains classes and functions for doing linear algebra.</p>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h3 id="class-vector">class Vector<a class="headerlink" href="#class-vector" title="Permanent link">&para;</a></h3>
+<p>-
+    - This class represents a vector of arbitrary size and related operations.</p>
+<div class="codehilite"><pre><span></span><code><span class="o">**</span><span class="n">Overview</span> <span class="n">about</span> <span class="n">the</span> <span class="n">methods</span><span class="p">:</span><span class="o">**</span>
+
+<span class="o">-</span> <span class="n">constructor</span><span class="p">(</span><span class="n">components</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span> <span class="p">:</span> <span class="n">init</span> <span class="n">the</span> <span class="n">vector</span>
+<span class="o">-</span> <span class="n">set</span><span class="p">(</span><span class="n">components</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span> <span class="p">:</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">components</span><span class="o">.</span>
+<span class="o">-</span> \<span class="n">_</span>\<span class="n">_str</span>\<span class="n">_</span>\<span class="n">_</span><span class="p">()</span> <span class="p">:</span> <span class="n">toString</span> <span class="n">method</span>
+<span class="o">-</span> <span class="n">component</span><span class="p">(</span><span class="n">i</span> <span class="p">:</span> <span class="nb nb-Type">int</span><span class="p">):</span> <span class="n">gets</span> <span class="n">the</span> <span class="n">i</span><span class="o">-</span><span class="n">th</span> <span class="n">component</span> <span class="p">(</span><span class="n">start</span> <span class="n">by</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">-</span> \<span class="n">_</span>\<span class="n">_len</span>\<span class="n">_</span>\<span class="n">_</span><span class="p">()</span> <span class="p">:</span> <span class="n">gets</span> <span class="n">the</span> <span class="n">size</span> <span class="o">/</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vector</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">components</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">euclidLength</span><span class="p">()</span> <span class="p">:</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">eulidean</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vector</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">operator</span> <span class="o">+</span> <span class="p">:</span> <span class="n">vector</span> <span class="n">addition</span>
+<span class="o">-</span> <span class="n">operator</span> <span class="o">-</span> <span class="p">:</span> <span class="n">vector</span> <span class="n">subtraction</span>
+<span class="o">-</span> <span class="n">operator</span> <span class="o">*</span> <span class="p">:</span> <span class="n">scalar</span> <span class="n">multiplication</span> <span class="ow">and</span> <span class="n">dot</span> <span class="n">product</span>
+<span class="o">-</span> <span class="n">copy</span><span class="p">()</span> <span class="p">:</span> <span class="n">copies</span> <span class="n">this</span> <span class="n">vector</span> <span class="ow">and</span> <span class="n">returns</span> <span class="n">it</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">changeComponent</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">value</span><span class="p">)</span> <span class="p">:</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">component</span><span class="o">.</span>
+</code></pre></div>
+
+
+<ul>
+<li>function zeroVector(dimension)<ul>
+<li>returns a zero vector of 'dimension'</li>
+</ul>
+</li>
+<li>function unitBasisVector(dimension,pos)<ul>
+<li>returns a unit basis vector with a One at index 'pos' (indexing at 0)</li>
+</ul>
+</li>
+<li>function axpy(scalar,vector1,vector2)<ul>
+<li>computes the axpy operation</li>
+</ul>
+</li>
+<li>function randomVector(N,a,b)<ul>
+<li>returns a random vector of size N, with random integer components between 'a' and 'b'.</li>
+</ul>
+</li>
+</ul>
+<h3 id="class-matrix">class Matrix<a class="headerlink" href="#class-matrix" title="Permanent link">&para;</a></h3>
+<p>-
+    - This class represents a matrix of arbitrary size and operations on it.</p>
+<div class="codehilite"><pre><span></span><code><span class="o">**</span><span class="n">Overview</span> <span class="n">about</span> <span class="n">the</span> <span class="n">methods</span><span class="p">:</span><span class="o">**</span>
+
+<span class="o">-</span>  <span class="err">\</span><span class="n">_</span><span class="err">\</span><span class="n">_str</span><span class="err">\</span><span class="n">_</span><span class="err">\</span><span class="n">_</span><span class="p">()</span> <span class="p">:</span> <span class="k">returns</span> <span class="n">a</span> <span class="n">string</span> <span class="n">representation</span>
+<span class="o">-</span> <span class="k">operator</span> <span class="o">*</span> <span class="p">:</span> <span class="n">implements</span> <span class="n">the</span> <span class="n">matrix</span> <span class="n">vector</span> <span class="n">multiplication</span>
+               <span class="n">implements</span> <span class="n">the</span> <span class="n">matrix</span><span class="o">-</span><span class="n">scalar</span> <span class="n">multiplication</span><span class="p">.</span>
+<span class="o">-</span> <span class="n">changeComponent</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">value</span><span class="p">)</span> <span class="p">:</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">component</span><span class="p">.</span>
+<span class="o">-</span> <span class="n">component</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">:</span> <span class="k">returns</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">component</span><span class="p">.</span>
+<span class="o">-</span> <span class="n">width</span><span class="p">()</span> <span class="p">:</span> <span class="k">returns</span> <span class="n">the</span> <span class="n">width</span> <span class="k">of</span> <span class="n">the</span> <span class="n">matrix</span>
+<span class="o">-</span> <span class="n">height</span><span class="p">()</span> <span class="p">:</span> <span class="k">returns</span> <span class="n">the</span> <span class="n">height</span> <span class="k">of</span> <span class="n">the</span> <span class="n">matrix</span>
+<span class="o">-</span> <span class="n">determinate</span><span class="p">()</span> <span class="p">:</span> <span class="k">returns</span> <span class="n">the</span> <span class="n">determinate</span> <span class="k">of</span> <span class="n">the</span> <span class="n">matrix</span> <span class="k">if</span> <span class="n">it</span> <span class="k">is</span> <span class="n">square</span>
+<span class="o">-</span> <span class="k">operator</span> <span class="o">+</span> <span class="p">:</span> <span class="n">implements</span> <span class="n">the</span> <span class="n">matrix</span><span class="o">-</span><span class="n">addition</span><span class="p">.</span>
+<span class="o">-</span> <span class="k">operator</span> <span class="o">-</span> <span class="n">_</span> <span class="n">implements</span> <span class="n">the</span> <span class="n">matrix</span><span class="o">-</span><span class="n">subtraction</span>
+</code></pre></div>
+
+
+<ul>
+<li>function squareZeroMatrix(N)<ul>
+<li>returns a square zero-matrix of dimension NxN</li>
+</ul>
+</li>
+<li>function randomMatrix(W,H,a,b)<ul>
+<li>returns a random matrix WxH with integer components between 'a' and 'b'</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>This module uses docstrings to enable the use of Python's in-built <code>help(...)</code> function.
+For instance, try <code>help(Vector)</code>, <code>help(unitBasisVector)</code>, and <code>help(CLASSNAME.METHODNAME)</code>.</p>
+<hr />
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>Import the module <code>lib.py</code> from the <strong>src</strong> directory into your project.
+Alternatively, you can directly use the Python bytecode file <code>lib.pyc</code>.</p>
+<hr />
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>
+<p><code>src/tests.py</code> contains Python unit tests which can be run with <code>python3 -m unittest -v</code>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
+      
+        <script src="../../../../js/termynal.js"></script>
+      
+        <script src="../../../../js/custom.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
